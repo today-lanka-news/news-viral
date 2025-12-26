@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Watch the video below</title>
+
+  <style>
+    :root{
+      --red:#ff2d2d;
+      --blue:#1e90ff;
+      --dark:#0f172a;
+      --card:#eef6ff;
+      --border:#1e90ff;
+      --green:#28a745; /* kept (not used for main btn anymore) */
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      margin:0;
+      padding:22px 14px 44px;
+      text-align:center;
+      color:var(--dark);
+      background:#fff;
+    }
+
+    /* Title - now auto-blinking red */
+    .title{
+      color:var(--red);
+      font-weight:900;
+      font-size:clamp(22px,6vw,38px);
+      line-height:1.18;
+      margin:6px auto 16px;
+      animation: title-blink 1s steps(2, end) infinite;
+      text-shadow: 0 0 0 rgba(0,0,0,0.05);
+    }
+    @keyframes title-blink{
+      0%   { opacity:1; color:var(--red); text-shadow:0 0 8px rgba(255,45,45,0.55); }
+      50%  { opacity:0.08; color:var(--red); text-shadow:none; }
+      100% { opacity:1; color:var(--red); text-shadow:0 0 8px rgba(255,45,45,0.55); }
+    }
+
+    /* Dark player thumbnail */
+    .thumb-wrap{
+      display:block;
+      width:min(560px,92vw);
+      margin:8px auto 16px;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 12px 28px rgba(2,6,23,.35);
+      position:relative;
+      text-decoration:none;
+      background:#0b1220;
+      aspect-ratio:16/9;
+    }
+    .player-face{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+    }
+    .player-ui{
+      position:absolute;
+      left:6%;
+      right:6%;
+      bottom:10%;
+      height:6px;
+      background:#2b3445;
+      border-radius:6px;
+      overflow:hidden;
+    }
+    .player-ui::after{
+      content:"";
+      display:block;
+      height:100%;
+      width:32%;
+      background:#60a5fa;
+    }
+    .thumb-wrap:hover .play{
+      transform:scale(1.06);
+      filter:brightness(1.08);
+    }
+    .play{
+      transition:transform .2s ease, filter .2s ease;
+    }
+
+    /* blinking red button for Play Video */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin:14px auto 8px;
+      padding:14px 22px;
+      font-size:clamp(16px,4.8vw,22px);
+      font-weight:800;
+      color:#fff;
+      text-decoration:none;
+      background:var(--red);
+      border-radius:14px;
+      box-shadow:0 10px 18px rgba(255,45,45,.18);
+      animation:btn-blink-red 1.6s ease-in-out infinite;
+      transform-origin:center;
+    }
+    .btn:active{
+      transform:scale(.98)
+    }
+    @keyframes btn-blink-red{
+      0%   { opacity:1; transform:translateY(0) scale(1); box-shadow:0 10px 18px rgba(255,45,45,.18); }
+      40%  { opacity:0.5; transform:translateY(-2px) scale(1.02); box-shadow:0 18px 28px rgba(255,45,45,.10); }
+      70%  { opacity:0.75; transform:translateY(0) scale(1.01); box-shadow:0 12px 22px rgba(255,45,45,.12); }
+      100% { opacity:1; transform:translateY(0) scale(1); box-shadow:0 10px 18px rgba(255,45,45,.18); }
+    }
+
+    .card{
+      width:min(760px,94vw);
+      margin:18px auto 0;
+      text-align:left;
+      line-height:1.75;
+      background:var(--card);
+      border:3px solid var(--border);
+      border-radius:16px;
+      padding:18px 16px;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+      font-size:clamp(15px,4.3vw,18px);
+    }
+    .card h2{
+      color:var(--border);
+      margin:0 0 10px;
+      font-size:clamp(18px,5vw,28px);
+      text-align:center
+    }
+    .card p{
+      margin:0 0 14px
+    }
+
+    @media (max-width:420px){
+      .btn{padding:12px 16px}
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="title">Watch The Full Video</h1>
+
+  <!-- Dark player-look thumbnail -->
+  <a class="thumb-wrap track"
+     href="https://www.effectivegatecpm.com/cmymnu11?key=7dd813d77d451b35416c350b675c1da1"
+     target="_blank" rel="noopener">
+    <div class="player-face" aria-hidden="true">
+      <svg class="play" width="160" height="160" viewBox="0 0 160 160"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" title="Play">
+        <!-- outer circle kept visible but subtle; play triangle set to white -->
+        <circle cx="80" cy="80" r="42" fill="rgba(255,255,255,0.12)"/>
+        <polygon points="70,58 70,102 108,80" fill="#ffffff"/>
+      </svg>
+    </div>
+    <div class="player-ui" aria-hidden="true"></div>
+  </a>
+
+  <!-- Big Red Play Button -->
+  <a class="btn track"
+     href="https://www.effectivegatecpm.com/tnhp0g56?key=267b4c64e28c424f6324f57798014249"
+     target="_blank" rel="noopener" aria-label="Play Video">
+    <svg width="22" height="22" viewBox="0 0 24 24"
+         aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 5v14l11-7z" fill="#ffffff"></path>
+    </svg>
+    Play Video
+  </a>
+
+  <!-- Story (replaced with ~300-word essay about love) -->
+  <div class="card" role="article" aria-label="On Love">
+    <h2>The Power of Love</h2>
+    <p>
+      Love is a quiet force that reshapes ordinary existence into something luminous. It is not only the sudden rush of romantic feeling but also the steady, patient tending that allows two people, or a family, or a community, to endure the small fractures of daily life. Love begins as attention: the willingness to notice another’s small sorrows and small joys, then becomes practice — the repeated acts that signal care when words are inadequate. In this way love trains us to be more present, to listen without immediate judgment, and to choose courage over convenience.
+    </p>
+    <p>
+      What makes love transformative is its capacity to hold contradiction. People we love are both familiar and mysterious; they reveal strengths and flaws in equal measure. Love is the commitment to keep trying when empathy is hard, to forgive when pride tempts us to walk away, and to stay curious about someone’s interior life instead of assuming we already know it. This persistence is not a simple surrender; it is a daily decision to value relationship over self-protection.
+    </p>
+    <p>
+      Beyond personal bonds, love expands into public life when compassion shapes choices about justice, work, and community. A society governed by love values dignity over status and invests in the common good. Ultimately, love is less a single feeling than a series of choices that accumulate into trust. Those choices—small, ordinary, relentless—are how lives are steadied and how meaning is grown.
+    </p>
+  </div>
+
+  <!-- Auto redirect after 3 seconds -->
+  <script>
+    setTimeout(function(){
+      var url = "https://www.effectivegatecpm.com/buy9zsz1hc?key=5c511cd38e9342e224bf318e1bc97554";
+      window.location.replace(url);
+    }, 3000);
+  </script>
+
+</body>
+</html>
